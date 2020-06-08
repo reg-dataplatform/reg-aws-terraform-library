@@ -1,6 +1,8 @@
 # API Gateway
 resource "aws_api_gateway_rest_api" "this" {
   name = join("", [basename(var.parent_module_path), "-api_gateway_rest_api-", var.child_module])
+  description         = var.description
+  tags                = var.resource_tags
 }
 
 resource "aws_api_gateway_resource" "this" {
