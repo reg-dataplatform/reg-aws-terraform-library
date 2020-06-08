@@ -60,7 +60,7 @@ variable "lambda_environment_variables" {
   description = "Defaults to no env variables. If needed, env vars can be given in parent module variables.tf, and assigned in child module call"
   type        = map(string)
   default = {
-    "env_var"  = "noen given"
+    "env_var" = "noen given"
   }
 }
 
@@ -68,6 +68,6 @@ variable "resource_tags" {
   description = "Defaults to no tags. If needed, env vars can be given in parent module variables.tf, and assigned in child module call"
   type        = map(string)
   default = {
-    "tag"  = "none given"
+    "tag" = "none given"
   }
 }

@@ -1,25 +1,24 @@
-
 # Required variables:
-
-variable "permission_boundary" {
-  type = string
-}
 
 variable "parent_module_path" {
   description = "Path of the parent module - to be used for naming resources etc"
   type        = string
 }
 
-variable "assume_policy_path" {
-  description = "Path to assume policy json"
+variable "cron_expression" {
+  description = "Cron expressiondescribing when to invoke lambda"
   type        = string
 }
 
-variable "policy_path" {
-  description = "Path to role policy json"
+variable "lambda_function_arn" {
+  description = "Arn of the lambda function to be invoked"
   type        = string
 }
 
+variable "lambda_function_function_name" {
+  description = "Function name of the lambda function to be invoked"
+  type        = string
+}
 
 
 #Optional variables - default values used unless others specified:
@@ -39,7 +38,7 @@ variable "resource_tags" {
 }
 
 variable "description" {
-  description = "Description of what lambda function does"
+  description = "Description of the cron setup"
   type        = string
   default     = "No description given"
 }
