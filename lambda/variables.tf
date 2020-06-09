@@ -1,7 +1,5 @@
 
 
-
-
 # Required variables:
 
 variable "parent_module_path" {
@@ -70,4 +68,20 @@ variable "resource_tags" {
   default = {
     "tag" = "none given"
   }
+}
+
+
+variable "additional_file_include" {
+  type = string
+  default = false
+}
+
+variable "additional_file_path" {
+  type = string
+  default = "./"
+}
+
+variable "additional_file_target" {
+  type = string
+  default = "./"
 }
