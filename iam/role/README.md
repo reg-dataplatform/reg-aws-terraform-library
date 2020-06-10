@@ -6,7 +6,11 @@ Generic code for generating IAM role.
 ## Description
 Generates a IAM role based on input `policy.json` and `assume-policy.json` (not restricted to these names), for use by a aws resource. 
 
-## Resources
+## Terraform functions
+
+### Data sources
+
+### Resources
 - `aws_iam_role`
     - provides a iam role
 - `aws_iam_role_policy` 
@@ -39,4 +43,3 @@ Generates a IAM role based on input `policy.json` and `assume-policy.json` (not 
     - `arn` of the generated role
 
 ## Further work
-- Consider making `resource_tags` as required

@@ -20,9 +20,13 @@ The following shows the currently available resources/functions and their locati
     ├── cloudwatch
     │    ├── cron_for_lambda
     ├── iam
+    │    ├── role
     ├── lambda
 
 ## Tagging
 All script files pushed to this repo should be tagged in accordance with the git-tagging policy. After pushing, use the following commands:
 - `git tag -a yourtag -m "comment"`
 - `git push --follow-tags`
+
+## Further work
+- Consider making `resource_tags` as required

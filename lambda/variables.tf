@@ -37,7 +37,7 @@ variable "added_name" {
 }
 
 variable "lambda_runtime" {
-  description = "Name of child module - default value ok if module contains only one lambda"
+  description = "Runtime environment to be used when executing lambda"
   type        = string
   default     = "python3.7"
 }
@@ -58,7 +58,7 @@ variable "lambda_environment_variables" {
   description = "Defaults to no env variables. If needed, env vars can be given in parent module variables.tf, and assigned in child module call"
   type        = map(string)
   default = {
-    "env_var" = "noen given"
+    "env_var" = "none given"
   }
 }
 
@@ -72,16 +72,19 @@ variable "resource_tags" {
 
 
 variable "additional_file_include" {
+  description = "option to include script file from other location"
   type = string
   default = false
 }
 
 variable "additional_file_path" {
+  description = "path to additional file"
   type = string
   default = "./"
 }
 
 variable "additional_file_target" {
+  description = "target location for additional file."
   type = string
   default = "./"
 }
