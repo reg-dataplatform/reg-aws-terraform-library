@@ -34,4 +34,3 @@ Generates a IAM role based on input `policy.json` and `assume-policy.json` (not 
 
 ## Further work
 - Consider making `resource_tags` as required
-- Relocate to subfolder `role` (`IAM/role`)
