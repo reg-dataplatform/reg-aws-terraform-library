@@ -12,4 +12,5 @@ resource "aws_cloudwatch_event_rule" "this" {
 resource "aws_cloudwatch_event_target" "this" {
   rule = aws_cloudwatch_event_rule.this.name
   arn  = var.step_function_arn
+  role_arn = var.iam_role_arn
 }
