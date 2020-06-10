@@ -30,7 +30,7 @@ variable "lambda_handler" {
 
 #Optional variables - default values used unless others specified:
 
-variable "child_module" {
+variable "added_name" {
   description = "Name of child module - default value ok if module contains only one lambda"
   type        = string
   default     = "main"

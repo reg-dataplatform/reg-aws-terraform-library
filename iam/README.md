@@ -17,7 +17,7 @@ Generates a IAM role based on input `policy.json` and `assume-policy.json` (not 
 - `policy_path`
     - path to policy .json-document
 ### Optional (default values used unless specified)
-- `child_module`
+- `added_name`
     - name added to role in aws - could be used if several roles are needed within the same module
     - default: `main`
 - `resource_tags`
@@ -32,6 +32,5 @@ Generates a IAM role based on input `policy.json` and `assume-policy.json` (not 
     - `arn` of the generated role
 
 ## Further work
-- Consider renaming `child_module` accross all resources/functions
 - Consider making `resource_tags` as required
 - Relocate to subfolder `role` (`IAM/role`)
