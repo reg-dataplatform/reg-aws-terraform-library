@@ -16,6 +16,7 @@ Generates a IAM role based on input `policy.json` and `assume-policy.json` (not 
     - path to the assume-policy .json-document
 - `policy_path`
     - path to policy .json-document
+
 ### Optional (default values used unless specified)
 - `added_name`
     - name added to role in aws - could be used if several roles are needed within the same module
