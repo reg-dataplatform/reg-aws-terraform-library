@@ -6,6 +6,12 @@ Generic code for generating IAM role.
 ## Description
 Generates a IAM role based on input `policy.json` and `assume-policy.json` (not restricted to these names), for use by a aws resource. 
 
+## Resources
+- `aws_iam_role`
+    - provides a iam role
+- `aws_iam_role_policy` 
+    - defines and attaches the policy document to the role
+
 ## Input variables
 ### Required
 - `permission_boundary`
