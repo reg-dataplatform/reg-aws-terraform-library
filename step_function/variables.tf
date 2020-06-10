@@ -17,6 +17,11 @@ variable "template_file_source_dir" {
 
 
 #Optional variables - default values used unless others specified:
+variable "added_name" {
+  description = "Name of child module - default value ok if module contains only one lambda"
+  type        = string
+  default     = "main"
+}
 
 variable "variableA" {
   description = "Available variable name for passing variable to template file"
