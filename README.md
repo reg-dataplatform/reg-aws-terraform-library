@@ -21,3 +21,8 @@ The following shows the currently available resources/functions and their locati
     │    ├── cron_for_lambda
     ├── iam
     ├── lambda
+
+## Tagging
+All script files pushed to this repo should be tagged in accordance with the git-tagging policy. After pushing, use the following commands:
+- `git tag -a yourtag -m "comment"`
+- `git push --follow-tags`

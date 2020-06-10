@@ -1,6 +1,6 @@
 # API Gateway
 resource "aws_api_gateway_rest_api" "this" {
-  name = join("", [basename(var.parent_module_path), "-api_gateway_rest_api-", var.child_module])
+  name = join("", [basename(var.parent_module_path), "-api_gateway_rest_api-", var.added_name])
   description         = var.description
   tags                = var.resource_tags
 }
@@ -48,7 +48,7 @@ resource "aws_api_gateway_deployment" "this" {
     aws_api_gateway_integration.root,
   ]
   rest_api_id = aws_api_gateway_rest_api.this.id
-  stage_name  = join("", [basename(var.parent_module_path), "-api_gateway_deployment-", var.child_module])
+  stage_name  = join("", [basename(var.parent_module_path), "-api_gateway_deployment-", var.added_name])
 }
 
 resource "aws_lambda_permission" "this" {

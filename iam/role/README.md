@@ -6,6 +6,12 @@ Generic code for generating IAM role.
 ## Description
 Generates a IAM role based on input `policy.json` and `assume-policy.json` (not restricted to these names), for use by a aws resource. 
 
+## Resources
+- `aws_iam_role`
+    - provides a iam role
+- `aws_iam_role_policy` 
+    - defines and attaches the policy document to the role
+
 ## Input variables
 ### Required
 - `permission_boundary`
@@ -13,11 +19,12 @@ Generates a IAM role based on input `policy.json` and `assume-policy.json` (not 
 - `parent_module_path`
     - path of the module that calls this resource/function
 - `assume_policy_path`
-    - path to the assume-policy document
+    - path to the assume-policy .json-document
 - `policy_path`
-    - path to policy document
+    - path to policy .json-document
+
 ### Optional (default values used unless specified)
-- `child_module`
+- `added_name`
     - name added to role in aws - could be used if several roles are needed within the same module
     - default: `main`
 - `resource_tags`
@@ -27,7 +34,9 @@ Generates a IAM role based on input `policy.json` and `assume-policy.json` (not 
     - description of role
     - default: `No description given`
 
+## Output variables
+- `arn`
+    - `arn` of the generated role
+
 ## Further work
-- Consider renaming `child_module` accross all resources/functions
 - Consider making `resource_tags` as required
-- Relocate to subfolder `role` (`IAM/role`)
