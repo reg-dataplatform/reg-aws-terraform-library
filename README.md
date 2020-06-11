@@ -19,9 +19,11 @@ The following shows the currently available resources/functions and their locati
     │    ├── rest_api_for_lambda
     ├── cloudwatch
     │    ├── cron_for_lambda
+    │    ├── cron_for_step_function
     ├── iam
     │    ├── role
     ├── lambda
+    ├── step_function
 
 ## Tagging
 All script files pushed to this repo should be tagged in accordance with the git-tagging policy. After pushing, use the following commands:

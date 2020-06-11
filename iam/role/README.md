@@ -1,4 +1,4 @@
-# Resource/function: IAM
+# Resource/function: IAM/role
 
 ## Purpose
 Generic code for generating IAM role.
@@ -41,5 +41,19 @@ Generates a IAM role based on input `policy.json` and `assume-policy.json` (not 
 ## Output variables
 - `arn`
     - `arn` of the generated role
+
+## Example use
+The below example generates a iam role as a module using the terraform scripts from `source`, giving the permissions defined in `policy_path`.
+```sql
+module "iam_role_lambda" {
+  source              = "git::https://github.oslo.kommune.no/REN/aws-reg-terraform-library//iam/role?ref=v0.0.9"
+  parent_module_path  = path.module
+  permission_boundary = var.permission_boundary
+  assume_policy_path  = file(join("", [path.module, "/iam/lambda-assume-policy.json"]))
+  policy_path         = file(join("", [path.module, "/iam/lambda-policy.json"]))
+  resource_tags       = var.resource_tags
+  added_name          = "lambda"
+}
+```
 
 ## Further work

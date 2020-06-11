@@ -69,4 +69,25 @@ Establishes a lambda executable using standardized naming and input, including g
 - `function_name`
     - name of the lambda function
 
+## Example use
+The below example generates a lambda functin as a module using the terraform scripts from `source`. The `iam_role_arn` connects lambda to the role needed to execute the script. 
+
+The script generates a `.zip` package containing scripts located in `lambda_script_source_dir`. With the `additional_file_include = true`, and additional file is copied into `lambda_script_source_dir` before generating `.zip`. 
+
+```sql
+module "lambda" {
+  source                    = "git::https://github.oslo.kommune.no/REN/aws-reg-terraform-library//lambda?ref=v0.0.8"
+  parent_module_path        = path.module
+  iam_role_arn              = module.iam_role.arn
+  lambda_script_source_dir  = join("", [path.module, "/lambda"])
+  lambda_script_output_path = join("", [path.module, "/outputs/"])
+  lambda_handler            = "helloworld.hello"
+  resource_tags             = var.resource_tags
+
+  additional_file_include = true
+  additional_file_path = join("", [path.module, "/temp/ssm_secret.py"])
+  additional_file_target = "config/ssm_secret.py"
+}
+```
+
 ## Further work
