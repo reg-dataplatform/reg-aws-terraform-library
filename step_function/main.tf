@@ -9,4 +9,5 @@ resource "aws_sfn_state_machine" "this" {
     variableD = var.variableD
     variableE = var.variableE
     })
+  tags = var.resource_tags
 }
