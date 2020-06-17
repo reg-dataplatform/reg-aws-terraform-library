@@ -67,7 +67,7 @@ module "step_function" {
 An example of the template file is given below. Template files or of type `.json.tpl`.
 ```sql
 ${jsonencode({
-  "Comment": "Step1: downloads webdeb standplasser for area R into S3 raw - Step 2: converts data from json to csv and stores in S3 processed",
+  "Comment": "Step1: downloads webdeb standplasser for area R into S3 raw - Step 2: sends report to slack",
   "StartAt": "Download",
   "States": {
     "Download": {
