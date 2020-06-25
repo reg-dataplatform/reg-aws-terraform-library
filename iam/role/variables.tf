@@ -24,7 +24,7 @@ variable "policy_path" {
 
 #Optional variables - default values used unless others specified:
 
-variable "added_name" {
+variable "module_name" {
   description = "Name of child module - default value ok if module contains only one role"
   type        = string
   default     = "main"
