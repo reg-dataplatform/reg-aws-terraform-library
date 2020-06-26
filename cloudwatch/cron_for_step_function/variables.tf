@@ -20,14 +20,12 @@ variable "step_function_arn" {
   type        = string
 }
 
-
-#Optional variables - default values used unless others specified:
-
-variable "added_name" {
+variable "module_name" {
   description = "Name of child module - default value ok if module contains only one instance"
   type        = string
-  default     = "main"
 }
+
+#Optional variables - default values used unless others specified:
 
 variable "resource_tags" {
   description = "Defaults to no tags. If needed, env vars can be given in parent module variables.tf, and assigned in child module call"
