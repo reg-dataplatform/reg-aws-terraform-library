@@ -20,15 +20,12 @@ variable "policy_path" {
   type        = string
 }
 
-
+variable "module_name" {
+  description = "Name of child module - used to create resource name"
+  type        = string
+}
 
 #Optional variables - default values used unless others specified:
-
-variable "module_name" {
-  description = "Name of child module - default value ok if module contains only one role"
-  type        = string
-  default     = "main"
-}
 
 variable "resource_tags" {
   description = "Defaults to no tags. If needed, env vars can be given in parent module variables.tf, and assigned in child module call"
