@@ -27,14 +27,12 @@ variable "lambda_handler" {
   type        = string
 }
 
+variable "module_name" {
+  description = "Name of child module - used to create resource name"
+  type        = string
+}
 
 #Optional variables - default values used unless others specified:
-
-variable "added_name" {
-  description = "Name of child module - default value ok if module contains only one lambda"
-  type        = string
-  default     = "main"
-}
 
 variable "lambda_runtime" {
   description = "Runtime environment to be used when executing lambda"
