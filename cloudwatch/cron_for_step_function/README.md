@@ -21,7 +21,7 @@ Generates and activates cron job for a step function.
 - `parent_module_path`
     - path of the module that calls this resource/function
 - `cron_expression`
-    - cron expression describing when to invoke lambda (both cron() and rate() are allowed)
+    - cron expression describing when to invoke step function (both cron() and rate() are allowed)
 - `iam_role_arn`
     - arn of the iam role with permission to execute step function
 - `step_function_arn`
