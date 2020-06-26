@@ -1,5 +1,5 @@
 resource "aws_sfn_state_machine" "this" {
-  name     = join("", [basename(var.parent_module_path), "-step_function-", var.added_name])
+  name     = join("", [basename(var.parent_module_path), "-", var.module_name])
   role_arn = var.iam_role_arn
   definition = templatefile(var.template_file_source_dir,
     {
