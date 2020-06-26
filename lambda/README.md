@@ -30,11 +30,10 @@ Establishes a lambda executable using standardized naming and input, including g
     - path where .zip file will be stored locally
 - `lambda_handler`
     - execution handler used to invoke lambda
+- `module_name`
+    - name of child module - used to create resource name
 
 ### Optional (default values used unless specified)
-- `added_name`
-    - name added to lambda in aws - could be used if several lambdas are needed within the same module
-    - default: `main`
 - `lambda_runtime`
     - Runtime environment to be used when executing lambda
     - default: `python3.7`
@@ -75,18 +74,20 @@ The below example generates a lambda functin as a module using the terraform scr
 The script generates a `.zip` package containing scripts located in `lambda_script_source_dir`. With the `additional_file_include = true`, and additional file is copied into `lambda_script_source_dir` before generating `.zip`. 
 
 ```sql
-module "lambda" {
-  source                    = "git::https://github.oslo.kommune.no/REN/aws-reg-terraform-library//lambda?ref=v0.0.8"
+module "lambda_download_to_s3" {
+  source                    = "git::https://github.oslo.kommune.no/REN/aws-reg-terraform-library//lambda?ref=0.17.dev"
   parent_module_path        = path.module
-  iam_role_arn              = module.iam_role.arn
-  lambda_script_source_dir  = join("", [path.module, "/lambda"])
-  lambda_script_output_path = join("", [path.module, "/outputs/"])
-  lambda_handler            = "helloworld.hello"
+  iam_role_arn              = module.iam_role_for_lambda.arn
+  lambda_script_source_dir  = join("", [path.module, "/lambda_download_to_s3"])
+  lambda_script_output_path = join("", [path.module, "/zip_package/"])
+  lambda_handler            = "get_webdeb_standplasser.getStands"
   resource_tags             = var.resource_tags
-
-  additional_file_include = true
-  additional_file_path = join("", [path.module, "/temp/ssm_secret.py"])
-  additional_file_target = "config/ssm_secret.py"
+  additional_file_include   = true
+  additional_file_path      = "./library/lambda/ssm_secret.py"
+  additional_file_target    = "ssm_secret.py"
+  module_name                = "lambda_download_to_s3"
+  timeout                   = 300
+  lambda_environment_variables = var.lambda_environment_variables
 }
 ```
 
