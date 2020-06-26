@@ -22,11 +22,10 @@ Generates a step function based on a template file.
     - arn of iam role to be used by lambda script
 - `template_file_source_dir`
     - path to template file
+- `module_name`
+    - name of child module - used to create resource name
 
 ### Optional (default values used unless specified)
-- `added_name`
-    - name added to role in aws - could be used if several roles are needed within the same module
-    - default: `main`
 - `resource_tags`
     - tags added to role - should be specified jointly with all other resources in the same module
     - default: `"tag" = "none given"`
@@ -35,32 +34,35 @@ Generates a step function based on a template file.
     - default: `empty`
 - `variableB`
     - optional variable to be sent to template file
-    - default: `empty
+    - default: `empty`
 - `variableC`
     - optional variable to be sent to template file
-    - default: `empty
+    - default: `empty`
 - `variableD`
     - optional variable to be sent to template file
-    - default: `empty
+    - default: `empty`
 - `variableE`
     - optional variable to be sent to template file
-    - default: `empty
+    - default: `empty`
 
 ## Output variables
 - `arn`
     - `arn` of the step function
 
 ## Example use
-The below example generates a step function as a module using the terraform scripts from `source`, defining the step function from `template_file_source_dir` with input from variables `variableA` and `variableB`.
+The below example generates a step function as a module using the terraform scripts from `source`, defining the step function from `template_file_source_dir` with input from variables `variableA`, `variableB`, `variableC` and `variableD`.
 ```sql
 module "step_function" {
-  source                   = "git::https://github.oslo.kommune.no/REN/aws-reg-terraform-library//step_function?ref=0.14.dev"
+  source                   = "git::https://github.oslo.kommune.no/REN/aws-reg-terraform-library//step_function?ref=0.17.dev"
   parent_module_path       = path.module
-  iam_role_arn             = module.iam_role_step_function.arn
+  iam_role_arn             = module.iam_role_for_step_function.arn
   template_file_source_dir = join("", [path.module, "/step_function_template/workflow.json.tpl"])
   variableA                = module.lambda_download_to_s3.arn
-  variableB                = module.lambda_result_to_slack.arn
-  resource_tags             = var.resource_tags
+  variableB                = module.lambda_raw_to_processed.arn
+  variableC                = module.lambda_raw_to_origo.arn
+  variableD                = module.lambda_result_to_slack.arn
+  resource_tags            = var.resource_tags
+  module_name              = "step_function"
 }
 ```
 
