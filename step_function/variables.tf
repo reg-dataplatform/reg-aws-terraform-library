@@ -52,6 +52,36 @@ variable "variableE" {
   default     = "empty"
 }
 
+variable "variableF" {
+  description = "Available variable name for passing variable to template file"
+  type        = string
+  default     = "empty"
+}
+
+variable "variableG" {
+  description = "Available variable name for passing variable to template file"
+  type        = string
+  default     = "empty"
+}
+
+variable "variableH" {
+  description = "Available variable name for passing variable to template file"
+  type        = string
+  default     = "empty"
+}
+
+variable "variableI" {
+  description = "Available variable name for passing variable to template file"
+  type        = string
+  default     = "empty"
+}
+
+variable "variableJ" {
+  description = "Available variable name for passing variable to template file"
+  type        = string
+  default     = "empty"
+}
+
 variable "resource_tags" {
   description = "Defaults to no tags. If needed, env vars can be given in parent module variables.tf, and assigned in child module call"
   type        = map(string)
