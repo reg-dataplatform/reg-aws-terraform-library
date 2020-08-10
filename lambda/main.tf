@@ -32,6 +32,7 @@ resource "aws_lambda_function" "this" {
   runtime          = var.lambda_runtime
   description      = var.description
   timeout          = var.timeout
+  memory_size      = var.memory_size
   environment {
     variables = var.lambda_environment_variables
   }
