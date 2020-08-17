@@ -44,6 +44,21 @@ Generates a step function based on a template file.
 - `variableE`
     - optional variable to be sent to template file
     - default: `empty`
+- `variableF`
+    - optional variable to be sent to template file
+    - default: `empty`
+- `variableG`
+    - optional variable to be sent to template file
+    - default: `empty`
+- `variableH`
+    - optional variable to be sent to template file
+    - default: `empty`
+- `variableI`
+    - optional variable to be sent to template file
+    - default: `empty`
+- `variableJ`
+    - optional variable to be sent to template file
+    - default: `empty`
 
 ## Output variables
 - `arn`
