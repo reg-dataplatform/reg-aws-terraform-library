@@ -52,6 +52,12 @@ variable "timeout" {
   default     = 3
 }
 
+variable "memory_size" {
+  description = "Memory allocated to scripts - in increments of 64 MB from 128."
+  type        = number
+  default     = 128
+}
+
 variable "lambda_environment_variables" {
   description = "Defaults to no env variables. If needed, env vars can be given in parent module variables.tf, and assigned in child module call"
   type        = map(string)

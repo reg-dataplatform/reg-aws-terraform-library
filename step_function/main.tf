@@ -8,6 +8,11 @@ resource "aws_sfn_state_machine" "this" {
     variableC = var.variableC
     variableD = var.variableD
     variableE = var.variableE
+    variableF = var.variableF
+    variableG = var.variableG
+    variableH = var.variableH
+    variableI = var.variableI
+    variableJ = var.variableJ
     })
   tags = var.resource_tags
 }
