@@ -92,3 +92,21 @@ variable "additional_file_target" {
   type = string
   default = "./"
 }
+
+variable "second_additional_file_include" {
+  description = "option to include script file from other location"
+  type = string
+  default = false
+}
+
+variable "second_additional_file_path" {
+  description = "path to additional file"
+  type = string
+  default = "./"
+}
+
+variable "second_additional_file_target" {
+  description = "target location for additional file."
+  type = string
+  default = "./"
+}
