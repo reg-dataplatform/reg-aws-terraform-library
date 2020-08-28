@@ -110,3 +110,10 @@ variable "second_additional_file_target" {
   type = string
   default = "./"
 }
+
+variable "layer_arns" {
+  description = "arn of layers to attach"
+  type = string
+  default = ""
+}
+
