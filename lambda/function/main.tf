@@ -58,5 +58,6 @@ resource "aws_lambda_function" "this" {
   environment {
     variables = var.lambda_environment_variables
   }
+  layers = [var.layer_arns]
   tags = var.resource_tags
 }
