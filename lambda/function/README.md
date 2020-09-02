@@ -58,7 +58,19 @@ Establishes a lambda executable using standardized naming and input, including g
 - `additional_file_target`
     - target location for additional file. Must be inside `lambda_script_source_dir`. 
     - default: `./`
-- `layer_arns`
+- `layer_1_arn`
+    - arn of layer to be connected to lambda function
+    - default: `""`
+- `layer_2_arn`
+    - arn of layer to be connected to lambda function
+    - default: `""`
+- `layer_3_arn`
+    - arn of layer to be connected to lambda function
+    - default: `""`
+- `layer_4_arn`
+    - arn of layer to be connected to lambda function
+    - default: `""`
+- `layer_5_arn`
     - arn of layer to be connected to lambda function
     - default: `""`
 
@@ -90,7 +102,8 @@ module "lambda_download_to_s3" {
   module_name                   = "lambda_download_to_s3"
   timeout                       = 300
   lambda_environment_variables  = var.lambda_environment_variables
-  layer_arns                    = var.layer_arns
+  layer_1_arn                   = var.layer_1_arn
+  layer_2_arn                   = var.layer_2_arn
 }
 ```
 
