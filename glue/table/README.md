@@ -47,7 +47,7 @@ Module depends on database name `module.glue_data_catalog_database.name`
 
 ```sql
 module "glue_table_norsk_gjenvinning" {
-  source  = "git::https://github.oslo.kommune.no/REN/aws-reg-terraform-library//glue/table?ref=0.28.dev"
+  source  = "git::https://github.oslo.kommune.no/REN/aws-reg-terraform-library//glue/table?ref=0.29.dev"
   table_name = var.table_name
   database_name = module.glue_data_catalog_database.name
   location = var.location
