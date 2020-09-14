@@ -4,12 +4,18 @@
 Generic code for generating database in the data catalog.
 
 ## Description
-Establishes a database. 
+Establishes a Glue database in the Data Catalog. 
+IMPORTANT! All names must use only "_",  but not "-"
+
+### Resources
+- `aws_glue_catalog_database` 
+    - establishes tables 
 
 ## Input variables
 ### Required
 - `name`
     - name of database - used to create resource name
+      IMPORTANT! All names must use only "_",  but not "-"
 
 ### Optional (default values used unless specified)
 - `description`
