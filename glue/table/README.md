@@ -21,10 +21,12 @@ IMPORTANT! All names must use only "_",  but not "-"
 - `location`
     - Data location in s3 (s3://bucket_name/folder_name)
 - `columns`
-    - list of columns in map format: name=type (for ex.  column1="string")
+    - list(map) of columns in map format: name=type (for ex.  column1="string")
+      list(map) is as workaround because of bug (map doesnt keep an order)
       IMPORTANT! All names must use only "_",  but not "-"
 - `partition_keys`
-    - list of partitions in map format: name=type (for ex.  year="string")
+    - list(map) of partitions in map format: name=type (for ex.  year="string")
+      list(map) is as workaround because of bug (map doesnt keep an order)
 
 
 ### Optional (default values used unless specified)

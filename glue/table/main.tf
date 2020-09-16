@@ -25,8 +25,8 @@ resource "aws_glue_catalog_table" "this" {
     dynamic "columns" {
       for_each = var.columns
       content {
-        name   = columns.key
-        type   = columns.value
+        name   = columns.value["name"]
+        type   = columns.value["type"]
       }
     }
   }
@@ -34,8 +34,8 @@ resource "aws_glue_catalog_table" "this" {
   dynamic "partition_keys" {
     for_each = var.partition_keys
     content {
-        name   = partition_keys.key
-        type   = partition_keys.value
+        name   = partition_keys.value["name"]
+        type   = partition_keys.value["type"]
     }
   }
 }

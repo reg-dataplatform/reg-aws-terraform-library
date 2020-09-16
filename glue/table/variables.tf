@@ -20,13 +20,13 @@ variable "location" {
 #list of columns in map format: name=type (for ex.  column1="string")
 variable "columns" {
   description = "List of columns and types"
-  type = map(string)
+  type = list(map(string))
 }
 
 #list of partition keys in map format: name=type (for ex.  column1="string")
 variable "partition_keys" {
   description = "List of partition keys"
-  type = map(string) 
+  type = list(map(string))
 }
 
 #Optional variables - default values used unless others specified:
