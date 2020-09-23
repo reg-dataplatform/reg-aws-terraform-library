@@ -111,32 +111,7 @@ variable "second_additional_file_target" {
   default = "./"
 }
 
-variable "layer_1_arn" {
-  description = "arn of layers to attach"
-  type = string
-  default = ""
-}
-
-variable "layer_2_arn" {
-  description = "arn of layers to attach"
-  type = string
-  default = ""
-}
-
-variable "layer_3_arn" {
-  description = "arn of layers to attach"
-  type = string
-  default = ""
-}
-
-variable "layer_4_arn" {
-  description = "arn of layers to attach"
-  type = string
-  default = ""
-}
-
-variable "layer_5_arn" {
-  description = "arn of layers to attach"
-  type = string
-  default = ""
+variable "layer_names" {
+  type        = list(string)
+  default     = []
 }
