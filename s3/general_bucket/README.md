@@ -29,6 +29,12 @@ Generates general s3 buckets.
 - `enable_versioning`
     - Boolean for enabling bucket versioning - cannot be turned off once on
     - default: `false`
+- `use_encryption`
+    - Boolean for enabling bucket encryption
+    - default: `false`
+- `sse_algorithm`
+    - Selection of encryption algorithm - only required if `use_encryption = True`. Only default value currently implemented.
+    - default: `AES256`
 
 
 ## Output variables

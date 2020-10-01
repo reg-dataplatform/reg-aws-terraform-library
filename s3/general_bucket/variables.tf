@@ -28,3 +28,15 @@ variable "tags" {
     "tag" = "none given"
   }
 }
+
+variable "use_encryption" {
+  description = "Option to use encryption on bucket - Boolean - defaults to false"
+  type        = string
+  default     = false
+}
+
+variable "sse_algorithm" {
+  description = "Selection of encryption algorithm - only required if <use_encryption = True>"
+  type        = string
+  default     = "AES256"
+}
