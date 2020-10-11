@@ -10,17 +10,6 @@ variable "upload_directory" {
   type        = string  
 }
 
-variable "mime_types" {
-  default = {
-    html  = "text/html"
-    css   = "text/css"
-    js    = "application/javascript"
-    json  = "application/json"
-    csv   = "text/csv"
-  }
-}
-
-
 #Optional variables - default values used unless others specified:
 
 variable "bucket_acl" {
@@ -29,10 +18,14 @@ variable "bucket_acl" {
   default     = "private"
 }
 
-variable "enable_versioning" {
-  description = "Enable bucket versioning - cannot be turned off once on"
-  type        = bool
-  default     = false
+variable "mime_types" {
+  default = {
+    html  = "text/html"
+    css   = "text/css"
+    js    = "application/javascript"
+    json  = "application/json"
+    csv   = "text/csv"
+  }
 }
 
 variable "tags" {
