@@ -1,6 +1,6 @@
-output "arn" {
-  description = "Bucket arn"
-  value       = aws_s3_bucket_object.this.arn
+output "key" {
+  description = "Bucket key"
+  value       = aws_s3_bucket_object.this.key
 }
 
 output "name" {
