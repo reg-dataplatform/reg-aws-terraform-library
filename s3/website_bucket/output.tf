@@ -12,3 +12,8 @@ output "id" {
   description = "Bucket id"
   value       = aws_s3_bucket.this.id
 }
+
+output "website_endpoint" {
+  description = "Bucket bucket"
+  value       = aws_s3_bucket.this.website_endpoint
+}

@@ -40,6 +40,8 @@ Generates website s3 buckets.
     - `name` of the generated bucket
 - `id`
     - `id` of the generated bucket
+- `website_endpoint`
+    - `website_endpoint` of the generated bucket
 
 ## Example use
 The below example generates a bucket using default input where available.
