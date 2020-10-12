@@ -32,12 +32,8 @@ Upload files to s3 buckets.
     - map(strings). A MIME type (or media type) is an identifier for file formats or format contents on the Internet.
 
 ## Output variables
-- `arn`
-    - `arn` of the generated bucket
-- `name`
-    - `name` of the generated bucket
 - `id`
-    - `id` of the generated bucket
+    - `id` - array of the uploaded file names
 
 ## Example use
 The below example generates a bucket using default input where available.
