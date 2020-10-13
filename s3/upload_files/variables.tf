@@ -1,4 +1,3 @@
-
 # Required variables:
 variable "bucket_name" {
   description = "Name of the bucket"
@@ -6,13 +5,13 @@ variable "bucket_name" {
 }
 
 variable "upload_directory" {
-  description = "Name of the bucket"
+  description = "source local directory"
   type        = string  
 }
 
 #Optional variables - default values used unless others specified:
-variable "target_key" {
-  description = "Name of the bucket"
+variable "bucket_key" {
+  description = "bucket key. path between bucket and file"
   type        = string  
   default     = ""
 }
