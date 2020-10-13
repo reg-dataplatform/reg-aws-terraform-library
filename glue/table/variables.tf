@@ -23,16 +23,17 @@ variable "columns" {
   type = list(map(string))
 }
 
-#list of partition keys in map format: name=type (for ex.  column1="string")
-variable "partition_keys" {
-  description = "List of partition keys"
-  type = list(map(string))
-}
-
 #Optional variables - default values used unless others specified:
 #separator
 variable "separators" {
   description = "Column separator in csv file"
   type        = string
   default     = ";"
+}
+
+#list of partition keys in map format: name=type (for ex.  column1="string")
+variable "partition_keys" {
+  description = "List of partition keys"
+  type = list(map(string))
+  default = []
 }

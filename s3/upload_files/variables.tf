@@ -11,6 +11,11 @@ variable "upload_directory" {
 }
 
 #Optional variables - default values used unless others specified:
+variable "target_key" {
+  description = "Name of the bucket"
+  type        = string  
+  default     = ""
+}
 
 variable "bucket_acl" {
   description = "Canned ACL - see https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl for options"
@@ -25,6 +30,7 @@ variable "mime_types" {
     js    = "application/javascript"
     json  = "application/json"
     csv   = "text/csv"
+    sql   = "application/sql"
   }
 }
 
