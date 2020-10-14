@@ -30,5 +30,11 @@ All script files pushed to this repo should be tagged in accordance with the git
 - `git tag -a yourtag -m "comment"`
 - `git push --follow-tags`
 
+## Example
+- `git tag --delete 0.34.dev`
+- `git tag -a 0.34.dev -m "s3 website bucket, upload files to s3, create folder in the bucket,  json table"`
+- `git push --follow-tags`
+
+
 ## Further work
 - Consider making `resource_tags` as required
