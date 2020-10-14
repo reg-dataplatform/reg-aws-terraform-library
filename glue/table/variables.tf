@@ -1,17 +1,19 @@
 # Required variables:
-#table name
 variable "table_name" {
   description = "Table in the (Data catalog) of Glue service"
   type        = string
 }
 
-#database name
 variable "database_name" {
   description = "Database name where table is located"
   type        = string
 }
 
-#data location in s3
+variable "source_type" {
+  description = "Database type (csv, json)"
+  type        = string
+}
+
 variable "location" {
   description = "Data location in s3"
   type        = string
@@ -24,7 +26,6 @@ variable "columns" {
 }
 
 #Optional variables - default values used unless others specified:
-#separator
 variable "separators" {
   description = "Column separator in csv file"
   type        = string
@@ -36,4 +37,25 @@ variable "partition_keys" {
   description = "List of partition keys"
   type = list(map(string))
   default = []
+}
+
+variable "serialization_library" {
+  description = "Serialization library"
+  type = map(string)
+  default = {
+    "csv":  "org.apache.hadoop.hive.serde2.OpenCSVSerde",
+    "json": "org.openx.data.jsonserde.JsonSerDe"
+  }
+}
+
+variable "input_format" {
+  description = "Input format"
+  type        = string
+  default     = "org.apache.hadoop.mapred.TextInputFormat"
+}
+
+variable "output_format" {
+  description = "Output format"
+  type        = string
+  default     = "org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat"
 }
