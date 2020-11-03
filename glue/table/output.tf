@@ -1,14 +1,11 @@
+output "arn" {
+  value = (var.source_type == "json") ? aws_glue_catalog_table.json_table[0].arn : aws_glue_catalog_table.csv_table[0].arn 
+}
+
 output "id" {
-  description = "Glue table id"
-  value       = aws_glue_catalog_table.this.id
+  value = (var.source_type == "json") ? aws_glue_catalog_table.json_table[0].id : aws_glue_catalog_table.csv_table[0].id 
 }
 
 output "name" {
-  description = "Glue table name"
-  value       = aws_glue_catalog_table.this.name
-}
-
-output "arn" {
-  description = "Glue table arn"
-  value       = aws_glue_catalog_table.this.arn
+  value = (var.source_type == "json") ? aws_glue_catalog_table.json_table[0].name : aws_glue_catalog_table.csv_table[0].name 
 }

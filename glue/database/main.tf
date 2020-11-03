@@ -1,4 +1,8 @@
+locals {
+  database_name = "${var.database_name}_${var.env}"
+}
+
 resource "aws_glue_catalog_database" "this" {
-  name = var.database_name
+  name = local.database_name
   description = var.database_description
 }

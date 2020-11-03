@@ -9,11 +9,18 @@ variable "bucket_name" {
   type        = string
 }
 
+variable "bucket_policy" {
+  description = "Policy to indicate the allowed resource"
+  type        = string
+}
+
+
 #Optional variables - default values used unless others specified:
+
 variable "bucket_acl" {
   description = "Canned ACL - see https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl for options"
   type        = string
-  default     = "private"
+  default     = "public-read"
 }
 
 variable "enable_versioning" {
