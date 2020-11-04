@@ -11,7 +11,7 @@ resource "aws_s3_bucket" "this" {
     enabled = var.enable_versioning
   }
 
-  dynamic "server_side_encryption_configuration" {
+/*  dynamic "server_side_encryption_configuration" {
     for_each = var.use_encryption ? [var.sse_algorithm] : []
     content {
       rule {
@@ -21,6 +21,7 @@ resource "aws_s3_bucket" "this" {
       }
     }
   }
+*/
 
 
 }

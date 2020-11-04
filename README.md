@@ -30,5 +30,11 @@ All script files pushed to this repo should be tagged in accordance with the git
 - `git tag -a yourtag -m "comment"`
 - `git push --follow-tags`
 
+## Example
+- `git tag --delete 0.35.dev`
+- `git tag -a 0.35.dev -m "add website, env variable, dynamodb"`
+- `git push --follow-tags`
+
+
 ## Further work
 - Consider making `resource_tags` as required
