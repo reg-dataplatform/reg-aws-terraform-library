@@ -9,20 +9,23 @@ variable "parent_module_path" {
   type        = string
 }
 
-variable "lambda_function_invoke_arn" {
-  description = "Invoke arn of the lambda function to be invoked"
-  type        = string
-}
-
-variable "lambda_function_function_name" {
-  description = "Function name of the lambda function to be invoked"
-  type        = string
-}
-
 variable "module_name" {
   description = "Name of child module - used to create resource name"
   type        = string
 }
+
+variable "attribute_name" {
+  description = "Attribute name - also used as hash key"
+  type        = string
+}
+
+variable "attribute_type" {
+  description = "S, N, or B for (S)tring, (N)umber or (B)inary data"
+  type        = string
+}
+
+
+
 
 #Optional variables - default values used unless others specified:
 
@@ -34,8 +37,9 @@ variable "resource_tags" {
   }
 }
 
-variable "description" {
-  description = "Description of the cron setup"
+variable "billing_mode" {
+  description = "Billing mode applied - only PAY_PER_REQUEST currently available. PROVISIONED requires including read and write capacity to be included in setup"
   type        = string
-  default     = "No description given"
+  default     = "PAY_PER_REQUEST"
 }
+
