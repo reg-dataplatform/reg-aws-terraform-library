@@ -20,10 +20,26 @@ The following shows the currently available resources/functions and their locati
     ├── cloudwatch
     │    ├── cron_for_lambda
     │    ├── cron_for_step_function
+    ├── dynamodb
+    │    ├── table    
+    ├── glue
+    │    ├── crawler
+    │    ├── database
+    │    ├── table
     ├── iam
     │    ├── role
     ├── lambda
+    │    ├── function
+    │    ├── layer    
+    ├── s3
+    │    ├── create_folder
+    │    ├── general_bucket
+    │    ├── upload_files
+    │    ├── website_bucket
     ├── step_function
+    ├── website
+    │    ├── certificate
+    │    ├── cloud_front        
 
 ## Tagging
 All script files pushed to this repo should be tagged in accordance with the git-tagging policy. After pushing, use the following commands:
