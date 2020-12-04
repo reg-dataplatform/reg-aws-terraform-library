@@ -5,7 +5,7 @@ locals {
 resource "aws_glue_crawler" "this" {
   database_name = var.database_name
   name          = local.crawler_name
-  role          = var.role
+  role          = var.iam_role_arn
   tags          = var.resource_tags
   s3_target {
     path = var.s3_source_path
