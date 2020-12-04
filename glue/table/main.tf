@@ -1,11 +1,7 @@
-locals {
-  table_name = "${var.table_name}_${var.env}"
-}
-
 //--------------------------
 resource "aws_glue_catalog_table" "csv_table" {
   count = (var.source_type == "csv") ? 1 : 0
-  name          = local.table_name
+  name          = var.table_name
   database_name = var.database_name
   table_type    = "EXTERNAL_TABLE"
 
@@ -49,7 +45,7 @@ resource "aws_glue_catalog_table" "csv_table" {
 //-----------------------------------------
 resource "aws_glue_catalog_table" "json_table" {
   count = (var.source_type == "json") ? 1 : 0
-  name          = local.table_name
+  name          = var.table_name
   database_name = var.database_name
   table_type    = "EXTERNAL_TABLE"
 
