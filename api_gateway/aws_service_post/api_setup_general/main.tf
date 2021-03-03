@@ -110,7 +110,7 @@ resource "aws_api_gateway_integration" "lambda" {
 resource "aws_lambda_permission" "lambda" {
   count = var.target_type == "lambda" ? 1 : 0
 
-  statement_id  = "AllowExecutionFromAPIGateway"
+  statement_id  = join("-", ["AllowExecutionFromAPIGateway", var.lambda_function_name])
   action        = "lambda:InvokeFunction"
   function_name = var.lambda_function_name
   principal     = "apigateway.amazonaws.com"
