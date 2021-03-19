@@ -21,8 +21,8 @@ variable "lambda_authorizer_invoke_arn" {
   type = string
 }
 
-variable "lambda_authorizer_arn" {
-  description = "The lambda authorizer arn"
+variable "lambda_authorizer_role_arn" {
+  description = "The lambda authorizer iam role arn"
   type = string
 }
 
