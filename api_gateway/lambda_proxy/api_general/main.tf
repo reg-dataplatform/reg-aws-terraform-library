@@ -31,7 +31,7 @@ resource "aws_iam_role" "this" {
 resource "aws_iam_role_policy" "this" {
   name = join("", [var.api_name, "-authorizer_role_policy-", var.env])
   role = aws_iam_role.this.id
-  policy = <<EOF
+  policy = jsonencode(
   {
     "Version": "2012-10-17",
     "Statement": [
@@ -41,8 +41,7 @@ resource "aws_iam_role_policy" "this" {
         "Resource": "${var.lambda_authorizer_arn}"
       }
     ]
-  }
-  EOF
+  })
 }
 
 
