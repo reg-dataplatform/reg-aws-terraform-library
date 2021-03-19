@@ -32,7 +32,3 @@ variable "request_header_for_authorization" {
   default = "token"
 }
 
-variable "permission_boundary" {
-  description = "Permission boundary required to generate IAM role"
-  type = string
-}
