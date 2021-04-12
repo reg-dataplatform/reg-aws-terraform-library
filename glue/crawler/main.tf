@@ -1,5 +1,5 @@
 locals {
-    crawler_name = join("", [var.project_name, "-", "crawler", "_", var.target_table, "-",var.env])
+  crawler_name = join("", [var.project_name, "-", "crawler", "_", var.target_table, "-", var.env])
 }
 
 resource "aws_glue_crawler" "this" {
@@ -7,6 +7,7 @@ resource "aws_glue_crawler" "this" {
   name          = local.crawler_name
   role          = var.iam_role_arn
   tags          = var.resource_tags
+  schedule      = var.cron_schedule
   s3_target {
     path = var.s3_source_path
   }
