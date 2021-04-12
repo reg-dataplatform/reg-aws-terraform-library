@@ -27,6 +27,9 @@ Establishes a Glue crawler in the Data Catalog.
 - `iam_role_arn`
     - iam role arn - assigned iam role
 
+- `schedule`
+    - schedule - cron format for automated run
+
 - `s3_source_path`
     - s3 source - path of the source
 
