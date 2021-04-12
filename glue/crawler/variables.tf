@@ -24,6 +24,11 @@ variable "iam_role_arn" {
   type        = string
 }
 
+variable "cron_schedule" {
+  description = "cron formatted schedule"
+  type        = string
+}
+
 variable "s3_source_path" {
   description = "path of s3 source"
   type        = string
