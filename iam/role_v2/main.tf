@@ -38,6 +38,7 @@ data "aws_iam_policy_document" "role_policy" {
   dynamic "statement" {
     for_each = var.policy_statements
       content {
+        sid         = try(statement.value["sid"],"")
         effect      = try(statement.value["effect"],"Allow")
         actions     = statement.value["actions"]
         resources   = statement.value["resources"]
