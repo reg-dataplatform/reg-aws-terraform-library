@@ -33,9 +33,10 @@ Generates a IAM role based input variables assigning role to desired service and
 - `policy_statements`
     - list of maps including statements. each map in list creates a statement in policy.
     - syntax:
-    ```json
+    ```
         [
             {
+                sid                 = string - optional - accepts letters and number (no special characters) - defaults to ""
                 effect              = string - optional - accepts "Allow"|"Deny" - defaults to "Allow"
                 actions             = list(string) - required - multiple values accepted
                 resources           = list(string) - required - accepts resource arn - multiple values accepted
@@ -72,19 +73,39 @@ Generates a IAM role based input variables assigning role to desired service and
 - `arn`
     - `arn` of the generated role
 
-<!---
+
 ## Example use
-The below example generates a iam role as a module using the terraform scripts from `source`, giving the permissions defined in `policy_path`.
+The below example generates a iam role as a module using the terraform scripts from `source`, giving `lambda` the permissions defined in `policy_statements`.
 ```sql
-module "iam_role_for_lambda" {
-  source              = "git::https://github.oslo.kommune.no/REN/aws-reg-terraform-library//iam/role?ref=0.17.dev"
-  parent_module_path  = path.module
-  permission_boundary = var.permission_boundary
-  assume_policy_path  = file(join("", [path.module, "/iam/lambda-role-assume-policy.json"]))
-  policy_path         = file(join("", [path.module, "/iam/lambda-role-policy.json"]))
-  resource_tags       = var.resource_tags
-  module_name         = "iam_role_for_lambda"
+module "iam_role_for_lambda_test" {
+    source                  = "git::https://github.com/reg-dataplatform/reg-aws-terraform-library//iam/role_v2?ref=0.44.dev"
+    env                     = var.env
+    permission_boundary     = local.permission_boundary
+    project_name            = var.project_name
+    module_name             = "iam_role_for_lambda_test"
+    service_to_assume_role  = "lambda"
+    resource_tags           = local.resource_tags
+    policy_statements       = [
+            {
+                sid = "AllowGetPutInS3Key"
+                actions = ["s3:GetObject",
+                           "s3:PutObject"]
+                resources = [join("",[local.bucket_arn,"/sources/opening_hours/raw/facts/version=1/*"])]
+            },
+            {
+                sid = "AllowInteractionWithCloudwatchLogs"
+                actions = ["logs:CreateLogGroup",
+                           "logs:CreateLogStream",
+                           "logs:PutLogEvents"]
+                resources = ["*"]
+            },
+            {
+                sid = "AllowGetFromSystemsManagerParameterStore"
+                actions = ["ssm:Get*"]
+                resources = ["*"]
+            }
+        ]
 }
 ```
---->
+
 ## Further work
