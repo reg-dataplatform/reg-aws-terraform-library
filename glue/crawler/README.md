@@ -30,6 +30,9 @@ Establishes a Glue crawler in the Data Catalog.
 - `schedule`
     - schedule - cron format for automated run
 
+- `prefix`
+    - prefix - used to group tables created by crawler
+
 - `s3_source_path`
     - s3 source - path of the source
 
