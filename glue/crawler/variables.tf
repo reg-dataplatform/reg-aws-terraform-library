@@ -29,7 +29,7 @@ variable "cron_schedule" {
   type        = string
 }
 
-variable "table_prefix" {
+variable "prefix" {
   description = "prefix for all tables"
   type        = string
 }

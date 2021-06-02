@@ -8,7 +8,7 @@ resource "aws_glue_crawler" "this" {
   role          = var.iam_role_arn
   tags          = var.resource_tags
   schedule      = var.cron_schedule
-  prefix        = var.table_prefix
+  table_prefix  = var.prefix
   s3_target {
     path = var.s3_source_path
   }
