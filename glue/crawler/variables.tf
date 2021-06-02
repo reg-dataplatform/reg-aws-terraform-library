@@ -29,6 +29,11 @@ variable "cron_schedule" {
   type        = string
 }
 
+variable "table_prefix" {
+  description = "prefix for all tables"
+  type        = string
+}
+
 variable "s3_source_path" {
   description = "path of s3 source"
   type        = string
