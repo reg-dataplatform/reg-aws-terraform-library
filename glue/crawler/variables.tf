@@ -38,7 +38,6 @@ variable "prefix" {
 variable "recrawl_behavior" {
   description = "behaviour when recrawling"
   type        = string
-  default     = ""
 }
 
 variable "s3_source_path" {
