@@ -35,10 +35,22 @@ variable "prefix" {
   default     = ""
 }
 
+variable "recrawl_behaviour" {
+  description = "behaviour when recrawling"
+  type        = string
+  default     = ""
+}
+
 variable "s3_source_path" {
   description = "path of s3 source"
   type        = string
 }
+
+# variable "configuration" {
+#   description = "extra configuration (not avaliable as regular attribute)"
+#   type        = string
+#   default = {}
+# }
 
 #Optional variables - default values used unless others specified:
 variable "resource_tags" {
