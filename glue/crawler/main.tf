@@ -9,7 +9,7 @@ resource "aws_glue_crawler" "this" {
   tags             = var.resource_tags
   schedule         = var.cron_schedule
   table_prefix     = var.prefix
-  recrawl_behaviour = var.recrawl_behaviour
+  recrawl_behavior = var.recrawl_behavior
   s3_target {
     path = var.s3_source_path
   }
