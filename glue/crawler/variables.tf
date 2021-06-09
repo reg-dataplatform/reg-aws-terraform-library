@@ -35,7 +35,7 @@ variable "prefix" {
   default     = ""
 }
 
-variable "recrawl_behaviour" {
+variable "recrawl_behavior" {
   description = "behaviour when recrawling"
   type        = string
   default     = ""
