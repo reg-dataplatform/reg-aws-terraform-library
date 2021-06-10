@@ -35,6 +35,18 @@ variable "prefix" {
   default     = ""
 }
 
+variable "delete_behavior" {
+  description = "behaviour when deleting"
+  type        = string
+  default     = "DEPRECATE_IN_DATABASE"
+}
+
+variable "update_behavior" {
+  description = "behaviour when updating"
+  type        = string
+  default     = "UPDATE_IN_DATABASE"
+}
+
 variable "recrawl_behavior" {
   description = "behaviour when recrawling"
   type        = string
