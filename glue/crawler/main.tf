@@ -10,7 +10,7 @@ resource "aws_glue_crawler" "this" {
   schedule       = var.cron_schedule
   table_prefix   = var.prefix
   schema_change_policy {
-    delete_behavior = var.delete_behavior,
+    delete_behavior = var.delete_behavior
     update_behavior = var.update_behavior
   }
   recrawl_policy {
