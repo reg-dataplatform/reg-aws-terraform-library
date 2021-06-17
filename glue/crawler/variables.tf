@@ -50,6 +50,7 @@ variable "update_behavior" {
 variable "recrawl_behavior" {
   description = "behaviour when recrawling"
   type        = string
+  default     = null
 }
 
 variable "s3_source_path" {
