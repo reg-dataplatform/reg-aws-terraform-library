@@ -48,19 +48,28 @@ variable "serialization_library" {
   description = "Serialization library"
   type = map(string)
   default = {
-    "csv":  "org.apache.hadoop.hive.serde2.OpenCSVSerde",
-    "json": "org.openx.data.jsonserde.JsonSerDe"
+    "csv":      "org.apache.hadoop.hive.serde2.OpenCSVSerde",
+    "json":     "org.openx.data.jsonserde.JsonSerDe",
+    "parquet":  "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe"
   }
 }
 
 variable "input_format" {
   description = "Input format"
-  type        = string
-  default     = "org.apache.hadoop.mapred.TextInputFormat"
+  type        = map(string)
+  default     = {
+    "csv":      "org.apache.hadoop.mapred.TextInputFormat",
+    "json":     "org.apache.hadoop.mapred.TextInputFormat",
+    "parquet":  "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat"
+  }
 }
 
 variable "output_format" {
   description = "Output format"
-  type        = string
-  default     = "org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat"
+  type        = map(string)
+  default     = {
+    "csv":      "org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat",
+    "json":     "org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat",
+    "parquet":  "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat"
+  }
 }

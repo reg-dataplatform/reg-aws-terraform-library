@@ -13,8 +13,8 @@ resource "aws_glue_catalog_table" "csv_table" {
 
   storage_descriptor {
     location      = var.location
-    input_format  = var.input_format
-    output_format = var.output_format
+    input_format  = var.input_format[var.source_type]
+    output_format = var.output_format[var.source_type]
 
     ser_de_info {
       name = "my-store-serde"  
@@ -56,13 +56,56 @@ resource "aws_glue_catalog_table" "json_table" {
 
   storage_descriptor {
     location      = var.location
-    input_format  = var.input_format
-    output_format = var.output_format
+    input_format  = var.input_format[var.source_type]
+    output_format = var.output_format[var.source_type]
 
     ser_de_info {
       name = "my-store-serde"  
       serialization_library = var.serialization_library[var.source_type]
     } 
+    dynamic "columns" {
+      for_each = var.columns
+      content {
+        name   = columns.value["name"]
+        type   = columns.value["type"]
+      }
+    }
+  }
+
+  dynamic "partition_keys" {
+    for_each = var.partition_keys
+    content {
+        name   = partition_keys.value["name"]
+        type   = partition_keys.value["type"]
+    }
+  }
+}
+
+//-----------------------------------------
+resource "aws_glue_catalog_table" "parquet_table" {
+  count = (var.source_type == "parquet") ? 1 : 0
+  name          = var.table_name
+  database_name = var.database_name
+  table_type    = "EXTERNAL_TABLE"
+
+  parameters = {
+    EXTERNAL              = "TRUE"
+    "parquet.compression" = "SNAPPY"
+  }
+
+  storage_descriptor {
+    location      = var.location
+    input_format  = var.input_format[var.source_type]
+    output_format = var.output_format[var.source_type]
+
+    ser_de_info {
+      name = "my-store-serde"  
+      serialization_library = var.serialization_library[var.source_type]
+      parameters = {
+        "serialization.format" = 1
+      }
+    } 
+    
     dynamic "columns" {
       for_each = var.columns
       content {
