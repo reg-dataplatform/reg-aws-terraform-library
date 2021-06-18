@@ -1,7 +1,7 @@
 # Resource/function: Glue. Data catalog. tables
 
 ## Purpose
-Generic code for generating csv and json tables in the glue data catalog.
+Generic code for generating csv, json and parquet tables in the glue data catalog.
 
 ## Description
 Establishes ONLY csv tables which are separated by ";". 
@@ -13,13 +13,15 @@ IMPORTANT! All names must use only "_",  but not "-"
 
 ## Input variables
 ### Required
+- `env`
+    - name of aws environment to deploy resources in 
 - `table_name`
     - table name.   IMPORTANT! All names must use only "_",  but not "-"
 - `database_name`
     - database name where table is located.
       IMPORTANT! All names must use only "_",  but not "-"
 - `source_type`
-    - type of source.  csv or json  
+    - type of source.  "csv", "json" or "parquet"
 - `location`
     - Data location in s3 (s3://bucket_name/folder_name)
 - `columns`
@@ -37,13 +39,11 @@ IMPORTANT! All names must use only "_",  but not "-"
     - list(map) of partitions in map format: name=type (for ex.  year="string")
       list(map) is as workaround because of bug (map doesnt keep an order)
 - `serialization_library`
-    - serialization library. map type. depends on source_type (csv, json)
+    - serialization library. map type. depends on source_type (csv, json, parquet)
 - `input_format`
-    - input library.  
-    - by default - org.apache.hadoop.mapred.TextInputFormat
+    - input library. map type. depends on source_type (csv, json, parquet)
 - `output_format`
-    - input library.  
-    - by default - org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat
+    - input library. map type. depends on source_type (csv, json, parquet)
 
 ## Output variables
 - `arn`
@@ -61,6 +61,7 @@ Module depends on database name `module.glue_data_catalog_database.name`
 ```sql
 module "glue_table_norsk_gjenvinning" {
   source  = "git::https://github.oslo.kommune.no/REN/aws-reg-terraform-library//glue/table?ref=0.29.dev"
+  env            = var.env
   table_name     = var.table_name
   database_name  = var.database_name
   table_type     = var.table_type 
