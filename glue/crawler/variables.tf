@@ -58,10 +58,10 @@ variable "s3_source_path" {
   type        = string
 }
 
-variable "config" {
-  description = "extra configuration (not avaliable as regular attribute)"
-  type        = map
-  default = null
+# variable "config" {
+#   description = "extra configuration (not avaliable as regular attribute)"
+#   type        = map
+#   default = null
 }
 
 #Optional variables - default values used unless others specified:
