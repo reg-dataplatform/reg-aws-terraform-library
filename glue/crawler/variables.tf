@@ -62,7 +62,7 @@ variable "s3_source_path" {
 #   description = "extra configuration (not avaliable as regular attribute)"
 #   type        = map
 #   default = null
-}
+# }
 
 #Optional variables - default values used unless others specified:
 variable "resource_tags" {
